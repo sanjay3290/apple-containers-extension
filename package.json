@@ -1,0 +1,441 @@
+{
+  "name": "apple-containers",
+  "displayName": "Apple Containers",
+  "description": "Manage Apple Containers directly from VS Code - a lightweight alternative to Docker on macOS",
+  "version": "0.1.0",
+  "publisher": "sanjay3290",
+  "author": {
+    "name": "Sanjay"
+  },
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sanjay3290/apple-containers-extension"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "apple",
+    "containers",
+    "docker",
+    "macos",
+    "virtualization"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "apple-containers",
+          "title": "Apple Containers",
+          "icon": "media/container.svg"
+        }
+      ]
+    },
+    "views": {
+      "apple-containers": [
+        {
+          "id": "appleContainers.containers",
+          "name": "Containers",
+          "icon": "media/container.svg",
+          "contextualTitle": "Apple Containers"
+        },
+        {
+          "id": "appleContainers.images",
+          "name": "Images",
+          "icon": "media/image.svg"
+        },
+        {
+          "id": "appleContainers.volumes",
+          "name": "Volumes",
+          "icon": "media/volume.svg"
+        },
+        {
+          "id": "appleContainers.networks",
+          "name": "Networks",
+          "icon": "media/network.svg"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "appleContainers.refresh",
+        "title": "Refresh",
+        "category": "Apple Containers",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "appleContainers.runContainer",
+        "title": "Run Container...",
+        "category": "Apple Containers",
+        "icon": "$(play)"
+      },
+      {
+        "command": "appleContainers.startContainer",
+        "title": "Start Container",
+        "category": "Apple Containers",
+        "icon": "$(debug-start)"
+      },
+      {
+        "command": "appleContainers.stopContainer",
+        "title": "Stop Container",
+        "category": "Apple Containers",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "appleContainers.restartContainer",
+        "title": "Restart Container",
+        "category": "Apple Containers",
+        "icon": "$(debug-restart)"
+      },
+      {
+        "command": "appleContainers.deleteContainer",
+        "title": "Delete Container",
+        "category": "Apple Containers",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "appleContainers.attachContainer",
+        "title": "Attach Shell",
+        "category": "Apple Containers",
+        "icon": "$(terminal)"
+      },
+      {
+        "command": "appleContainers.viewLogs",
+        "title": "View Logs",
+        "category": "Apple Containers",
+        "icon": "$(output)"
+      },
+      {
+        "command": "appleContainers.inspectContainer",
+        "title": "Inspect",
+        "category": "Apple Containers",
+        "icon": "$(info)"
+      },
+      {
+        "command": "appleContainers.containerStats",
+        "title": "View Stats",
+        "category": "Apple Containers",
+        "icon": "$(dashboard)"
+      },
+      {
+        "command": "appleContainers.pullImage",
+        "title": "Pull Image...",
+        "category": "Apple Containers",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "appleContainers.buildImage",
+        "title": "Build Image...",
+        "category": "Apple Containers",
+        "icon": "$(tools)"
+      },
+      {
+        "command": "appleContainers.deleteImage",
+        "title": "Delete Image",
+        "category": "Apple Containers",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "appleContainers.inspectImage",
+        "title": "Inspect Image",
+        "category": "Apple Containers",
+        "icon": "$(info)"
+      },
+      {
+        "command": "appleContainers.runFromImage",
+        "title": "Run Container from Image",
+        "category": "Apple Containers",
+        "icon": "$(play)"
+      },
+      {
+        "command": "appleContainers.createVolume",
+        "title": "Create Volume...",
+        "category": "Apple Containers",
+        "icon": "$(add)"
+      },
+      {
+        "command": "appleContainers.deleteVolume",
+        "title": "Delete Volume",
+        "category": "Apple Containers",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "appleContainers.inspectVolume",
+        "title": "Inspect Volume",
+        "category": "Apple Containers",
+        "icon": "$(info)"
+      },
+      {
+        "command": "appleContainers.pruneVolumes",
+        "title": "Prune Unused Volumes",
+        "category": "Apple Containers",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "appleContainers.createNetwork",
+        "title": "Create Network...",
+        "category": "Apple Containers",
+        "icon": "$(add)"
+      },
+      {
+        "command": "appleContainers.deleteNetwork",
+        "title": "Delete Network",
+        "category": "Apple Containers",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "appleContainers.inspectNetwork",
+        "title": "Inspect Network",
+        "category": "Apple Containers",
+        "icon": "$(info)"
+      },
+      {
+        "command": "appleContainers.pruneImages",
+        "title": "Prune Unused Images",
+        "category": "Apple Containers",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "appleContainers.openSettings",
+        "title": "Open Settings",
+        "category": "Apple Containers",
+        "icon": "$(gear)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "appleContainers.refresh",
+          "when": "view =~ /appleContainers\\./",
+          "group": "navigation"
+        },
+        {
+          "command": "appleContainers.runContainer",
+          "when": "view == appleContainers.containers",
+          "group": "navigation"
+        },
+        {
+          "command": "appleContainers.pullImage",
+          "when": "view == appleContainers.images",
+          "group": "navigation"
+        },
+        {
+          "command": "appleContainers.buildImage",
+          "when": "view == appleContainers.images",
+          "group": "navigation"
+        },
+        {
+          "command": "appleContainers.createVolume",
+          "when": "view == appleContainers.volumes",
+          "group": "navigation"
+        },
+        {
+          "command": "appleContainers.createNetwork",
+          "when": "view == appleContainers.networks",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "appleContainers.startContainer",
+          "when": "view == appleContainers.containers && viewItem == stoppedContainer",
+          "group": "1_actions@1"
+        },
+        {
+          "command": "appleContainers.stopContainer",
+          "when": "view == appleContainers.containers && viewItem == runningContainer",
+          "group": "1_actions@1"
+        },
+        {
+          "command": "appleContainers.restartContainer",
+          "when": "view == appleContainers.containers && viewItem == runningContainer",
+          "group": "1_actions@2"
+        },
+        {
+          "command": "appleContainers.attachContainer",
+          "when": "view == appleContainers.containers && viewItem == runningContainer",
+          "group": "2_terminal@1"
+        },
+        {
+          "command": "appleContainers.viewLogs",
+          "when": "view == appleContainers.containers && viewItem =~ /Container$/",
+          "group": "2_terminal@2"
+        },
+        {
+          "command": "appleContainers.containerStats",
+          "when": "view == appleContainers.containers && viewItem == runningContainer",
+          "group": "3_info@1"
+        },
+        {
+          "command": "appleContainers.inspectContainer",
+          "when": "view == appleContainers.containers && viewItem =~ /Container$/",
+          "group": "3_info@2"
+        },
+        {
+          "command": "appleContainers.deleteContainer",
+          "when": "view == appleContainers.containers && viewItem =~ /Container$/",
+          "group": "4_danger@1"
+        },
+        {
+          "command": "appleContainers.runFromImage",
+          "when": "view == appleContainers.images && viewItem == image",
+          "group": "1_actions@1"
+        },
+        {
+          "command": "appleContainers.inspectImage",
+          "when": "view == appleContainers.images && viewItem == image",
+          "group": "2_info@1"
+        },
+        {
+          "command": "appleContainers.deleteImage",
+          "when": "view == appleContainers.images && viewItem == image",
+          "group": "3_danger@1"
+        },
+        {
+          "command": "appleContainers.inspectVolume",
+          "when": "view == appleContainers.volumes && viewItem == volume",
+          "group": "1_info@1"
+        },
+        {
+          "command": "appleContainers.deleteVolume",
+          "when": "view == appleContainers.volumes && viewItem == volume",
+          "group": "2_danger@1"
+        },
+        {
+          "command": "appleContainers.inspectNetwork",
+          "when": "view == appleContainers.networks && viewItem == network",
+          "group": "1_info@1"
+        },
+        {
+          "command": "appleContainers.deleteNetwork",
+          "when": "view == appleContainers.networks && viewItem == network",
+          "group": "2_danger@1"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "appleContainers.startContainer",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.stopContainer",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.restartContainer",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.deleteContainer",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.attachContainer",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.viewLogs",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.inspectContainer",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.containerStats",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.deleteImage",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.inspectImage",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.runFromImage",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.deleteVolume",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.inspectVolume",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.deleteNetwork",
+          "when": "false"
+        },
+        {
+          "command": "appleContainers.inspectNetwork",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Apple Containers",
+      "properties": {
+        "appleContainers.containerPath": {
+          "type": "string",
+          "default": "container",
+          "description": "Path to the container CLI executable"
+        },
+        "appleContainers.refreshInterval": {
+          "type": "number",
+          "default": 5000,
+          "description": "Auto-refresh interval in milliseconds (0 to disable)"
+        },
+        "appleContainers.showStoppedContainers": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show stopped containers in the list"
+        },
+        "appleContainers.defaultShell": {
+          "type": "string",
+          "default": "/bin/sh",
+          "description": "Default shell for attaching to containers"
+        },
+        "appleContainers.confirmBeforeDelete": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show confirmation dialog before deleting resources"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "lint:fix": "eslint src --ext ts --fix",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "@vscode/test-electron": "^2.3.8",
+    "@vscode/vsce": "^2.22.0",
+    "eslint": "^8.55.0",
+    "glob": "^13.0.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.3.2"
+  }
+}
