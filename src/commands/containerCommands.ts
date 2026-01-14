@@ -15,7 +15,7 @@ export function registerContainerCommands(
     context: vscode.ExtensionContext,
     cli: ContainerCli,
     containersProvider: ContainersProvider,
-    imagesProvider: ImagesProvider
+    _imagesProvider: ImagesProvider
 ): void {
     // Start container
     context.subscriptions.push(

@@ -5,12 +5,6 @@ on:
     tags:
       - "v*"
   workflow_dispatch:
-    inputs:
-      dry_run:
-        description: 'Dry run (package only, no publish)'
-        required: false
-        default: false
-        type: boolean
 
 jobs:
   publish:
@@ -38,4 +32,3 @@ jobs:
         with:
           pat: ${{ secrets.OPENVSX_TOKEN }}
           skipDuplicate: true
-          dryRun: ${{ inputs.dry_run || false }}
